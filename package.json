@@ -1,0 +1,31 @@
+{
+  "name": "products-crud",
+  "version": "1.0.0",
+  "description": "Products CRUD Demo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gjoshi1/node-products-crud.git"
+  },
+  "keywords": [
+    "RESTful",
+    "spi"
+  ],
+  "author": "Gowri Joshi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gjoshi1/node-products-crud/issues"
+  },
+  "homepage": "https://github.com/gjoshi1/node-products-crud#readme",
+  "devDependencies": {
+    "nodemon": "^1.14.12"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^5.0.3",
+    "mongoose-currency": "^0.2.0"
+  }
+}
