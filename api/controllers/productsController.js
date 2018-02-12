@@ -20,11 +20,11 @@ oxr.latest(function() {
 //Currency conversion
 
 exports.list_all_products = function(req, res) {
-  Product.find({}, function(err, product) {
+  Product.find({}, function(err, productList) {
     if (err)
       res.send(err);
 
-    res.json(product);
+    res.json(productList);
   });
 };
 
@@ -87,13 +87,42 @@ exports.read_product_price = function(req, res) {
   });
 };
 
+exports.read_total_price_cost = function(req, res) {
+  Product.find({}, function(err, productList) {
+    if (err)
+      res.send(err);
+
+      console.log("read_total_price_cost");
+      console.log(productList);
+
+      var total_cost=0,total_price=0,prod_cost=0,prod_price=0;
+
+      for(var product of productList){
+        console.log(product);
+          prod_cost = product.cost * product.stock;
+          prod_price = product.price * product.stock;
+
+
+
+          total_cost = total_cost + prod_cost;
+          total_price = total_price + prod_price;
+
+          console.log(prod_cost);
+          console.log(prod_price);
+          console.log(total_cost);
+          console.log(total_price);
+    }
+
+    res.json({"total_cost":total_cost,"total_price":total_price});
+  });
+};
+
+
 exports.read_total_product_price_cost = function(req, res) {
   Product.findById(req.params.productId, function(err, product) {
     if (err)
       res.send(err);
-
-
-
+      console.log("read_total_product_price_cost");
       var total_cost = product.cost * product.stock;
       var total_price = product.price * product.stock;
 

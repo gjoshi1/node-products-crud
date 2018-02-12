@@ -7,6 +7,8 @@ module.exports = function(app) {
     .get(products.list_all_products)
     .post(products.create_a_product);
 
+  app.route('/products/getAllCostAndPrice')
+        .get(products.read_total_price_cost);
 
   app.route('/products/:productId')
     .get(products.read_a_product)
@@ -14,9 +16,13 @@ module.exports = function(app) {
     .delete(products.delete_a_product);
 
   app.route('/products/getPrice/:productId/:currencyId')
-      .get(products.read_product_price)
+      .get(products.read_product_price);
+
+
 
   app.route('/products/getTotalCostAndPrice/:productId')
-          .get(products.read_total_product_price_cost)
+      .get(products.read_total_product_price_cost);
+
+
 
 };
