@@ -7,7 +7,7 @@ module.exports = function(app) {
     .get(products.list_all_products)
     .post(products.create_a_product);
 
-  app.route('/products/getAllCostAndPrice')
+  app.route('/products/getTotalCostAndPrice')
         .get(products.read_total_price_cost);
 
   app.route('/products/:productId')
