@@ -16,4 +16,7 @@ module.exports = function(app) {
   app.route('/products/getPrice/:productId/:currencyId')
       .get(products.read_product_price)
 
+  app.route('/products/getTotalCostAndPrice/:productId')
+          .get(products.read_total_product_price_cost)
+
 };

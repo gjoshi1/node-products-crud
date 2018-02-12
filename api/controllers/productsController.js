@@ -52,18 +52,6 @@ exports.read_a_product = function(req, res) {
   });
 };
 
-exports.read_product_price = function(req, res) {
-  Product.findById(req.params.productId, function(err, product) {
-    if (err)
-      res.send(err);
-
-
-    	// money.js is ready to use:
-    	var val = fx(product.price).from('USD').to(req.params.currencyId); // ~8.0424
-      console.log(val);
-    res.json(val);
-  });
-};
 
 exports.update_a_product = function(req, res) {
   Product.findOneAndUpdate({_id: req.params.productId}, req.body, {new: true}, function(err, product) {
@@ -83,5 +71,32 @@ exports.delete_a_product = function(req, res) {
     if (err)
       res.send(err);
     res.json({ message: 'Product successfully deleted' });
+  });
+};
+
+exports.read_product_price = function(req, res) {
+  Product.findById(req.params.productId, function(err, product) {
+    if (err)
+      res.send(err);
+
+
+    	// money.js is ready to use:
+    	var val = fx(product.price).from('USD').to(req.params.currencyId); // ~8.0424
+      console.log(val);
+    res.json(val);
+  });
+};
+
+exports.read_total_product_price_cost = function(req, res) {
+  Product.findById(req.params.productId, function(err, product) {
+    if (err)
+      res.send(err);
+
+
+
+      var total_cost = product.cost * product.stock;
+      var total_price = product.price * product.stock;
+
+    res.json({"product":product.name,"total_cost":total_cost,"total_price":total_price});
   });
 };
