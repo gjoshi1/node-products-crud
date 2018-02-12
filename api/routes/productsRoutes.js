@@ -12,4 +12,8 @@ module.exports = function(app) {
     .get(products.read_a_product)
     .put(products.update_a_product)
     .delete(products.delete_a_product);
+
+  app.route('/products/getPrice/:productId/:currencyId')
+      .get(products.read_product_price)
+
 };

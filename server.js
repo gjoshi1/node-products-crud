@@ -21,4 +21,4 @@ routes(app); //register the route
 app.listen(port);
 
 
-console.log('Products CRUS RESTful API server started on: ' + port);
+console.log('Products CRUD RESTful API server started on: ' + port);
