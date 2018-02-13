@@ -1,6 +1,18 @@
 # node-products-crud
-Products CRUD Demo for Payroll Panda Test
-=========================================
+Products CRUD Demo with currency conversion
+===========================================
+This  API allows users to do  CRUD  operations on  Products .Products have at least the following attributes:
+● description:  Pretty self explanatory. This would be a string with a somewhat succint description of what the product is. Say, if we were talking about candy, some examples would be:  “Nestle Chocolate Bar”, “SomeBrand Strawberry BubbleGum”,  etc.
+● cost:  How much it costs to buy the product .  In  USD .
+● price:  How much the product sells for .  In  USD .
+● stock : How many products are in stock
+
+Apart from the basic  CRUD  operations the api can :
+
+● Fetch the price of these products in any currency.
+● Money paid for all items of any given product in stock, and how much money one would get if all products are sold .
+●how much money is spent for all items in stock and how much would one get if all of them are sold.
+
 
 git repository:
 ==============
