@@ -90,13 +90,11 @@ exports.read_total_price_cost = function(req, res) {
     if (err)
       res.send(err);
 
-      console.log("read_total_price_cost");
-      console.log(productList);
-
       var total_cost=0,total_price=0,prod_cost=0,prod_price=0;
 
       for(var product of productList){
-        console.log(product);
+
+        //get the cost and prod of each product and add it to the total cost and product respectively
           prod_cost = product.cost * product.stock;
           prod_price = product.price * product.stock;
 
@@ -115,7 +113,7 @@ exports.read_total_product_price_cost = function(req, res) {
   Product.findById(req.params.productId, function(err, product) {
     if (err)
       res.send(err);
-      console.log("read_total_product_price_cost");
+      
       var total_cost = product.cost * product.stock;
       var total_price = product.price * product.stock;
 
