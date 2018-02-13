@@ -1,8 +1,6 @@
 'use strict';
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-// Will add the Currency type to the Mongoose Schema types
-
 
 var ProductSchema = new Schema({
   name : {type: String,
@@ -12,17 +10,20 @@ var ProductSchema = new Schema({
 
   },
   cost: {
-    type: Number
+    type: Number,
+    required: true
 
   },
   price: {
-    type: Number
+    type: Number,
+    required: true
 
   },
   stock: {
     type: Number,
-    default: 0
+    default: 0,
+    required: true 
   }
 });
 
-module.exports = mongoose.model('Products', ProductSchema);
+module.exports = mongoose.model('Product', ProductSchema);

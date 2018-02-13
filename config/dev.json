@@ -1,0 +1,4 @@
+
+{
+    "DBHost": "mongodb://localhost/products-CRUD"
+}
